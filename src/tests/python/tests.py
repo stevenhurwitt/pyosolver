@@ -25,7 +25,8 @@ def main():
 
     test()
 
-    read_file("creds.json")
+    filename = "creds.json"
+    read_file(filename)
 
     print("ran tests successfully.")
 
