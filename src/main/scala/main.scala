@@ -13,5 +13,5 @@ object main {
         return(subreddit)
     }
 
-    // val sureddit = main()
+    val sureddit = main()
 }
