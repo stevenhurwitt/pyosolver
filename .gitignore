@@ -1,8 +1,12 @@
 __pycache__
+.metals
+.vscode
+.bloop
+.DS_Store
 build
 dist
 dist/*.whl
 pyosolver/saves/discover
-pyosolver.egg-info/*
+pyosolver.egg-info
 *.json
 *.txt
