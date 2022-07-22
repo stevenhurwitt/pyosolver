@@ -9,7 +9,14 @@ pp = pprint.PrettyPrinter(indent = 1)
 print("imported modules.")
 
 def test():
-    print("test")
+
+    filename = "creds.json"
+    with open(filename, "r") as f:
+        file = json.load(f)
+        f.close()
+        print("read file: " + filename)
+
+    pp.pprint(file)
     assert True
 
 def read_file():
