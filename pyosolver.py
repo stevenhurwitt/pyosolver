@@ -1,6 +1,7 @@
 import subprocess
 import os
 import time
+import math
 from decimal import Decimal, InvalidOperation
 from functools import partial
 from uuid import uuid4
@@ -323,5 +324,6 @@ def is_member(hand, hand_class):
 		return ranks_match and hand[1] != hand[3]
 
 end = time.time()
-diff = end - start
-print(diff)
+diff = (end - start)*1000
+diff = round(diff, 8)
+print("done in {} seconds.".format(diff))
