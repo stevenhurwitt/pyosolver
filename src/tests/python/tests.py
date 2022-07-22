@@ -23,11 +23,13 @@ def test():
     os.environ["AWS_SECRET_ACCESS_KEY"] = secrets.get_secret_value(SecretId = "AWS_SECRET_ACCESS_KEY")["SecretString"]
     with open("creds.json", "r") as f:
         creds = json.load(f)
+        pp.pprint(creds)
         f.close()
 
     # get file
     with open(filename, "r") as f:
         file = json.load(f)
+        pp.pprint(file)
         f.close()
     print("read file: " + filename)
     assert len(filename) > 0
