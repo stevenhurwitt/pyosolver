@@ -334,4 +334,10 @@ if __name__ == "__main__":
     # time.sleep(600)
     print("reading from api to kafka...")
     aws_client, aws_secret = aws()
-    main()
+    print("authenticated to aws.")
+
+    try:
+        main()
+
+    except KeyboardInterrupt:
+        print("stopped kafka producer.")
