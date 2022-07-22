@@ -11,22 +11,38 @@ import json
 import sys
 import os
 pp = pprint.PrettyPrinter(indent=1)
-secrets = boto3.client("secretsmanager", region_name = "us-east-2")
-print(secrets)
+subreddit = "technology"
 
-try:
-    import reddit
-    print("imported reddit module.")
+def aws():
+    """
+    get aws resources.
+    """
+    try:
+        secrets = boto3.client("secretsmanager", region_name = "us-east-2")
+        aws_client_request = json.loads(secrets.getSecretValue(SecretId = "AWS_ACCESS_KEY_ID")["SecretString"])
+        aws_secret_request = json.loads(secrets.getSecretValue(SecretId = "AWS_SECRET_ACCESS_KEY")["SecretString"])
+        print("client: {}, secret: {}.".format(aws_client_request, aws_secret_request))
 
-except:
-    print("failed to import reddit module.")
-    pass
+        aws_client = aws_client_request["AWS_ACCESS_KEY_ID"]
+        aws_secret = aws_secret_request["AWS_SECRET_ACCESS_KEY"]
+        os.environ["AWS_ACCESS_KEY_ID"] = aws_client
+        os.environ["AWS_SECRET_ACCESS_KEY"] = aws_secret
+        os.environ["subreddit"] = subreddit
+        print("client: {}, secret: {}.".format(aws_client, aws_secret))
 
-# def aws():
-#     s3_client = boto3.client("s3")
-#     athena_client = boto3.client("athena")
-#     secret_client = boto3.client("secrets")
-#     return(s3_client, athena_client, secret_client)
+    except:
+        print("failed to build secrets client.")
+        pass
+
+    try:
+        import reddit
+        print("imported reddit module.")
+
+    except:
+        print("failed to import reddit module.")
+        pass
+
+    return(aws_client, aws_secret)
 
 def get_bearer():
     """
@@ -280,7 +296,7 @@ def poll_subreddit(subreddit, post_type, header, host, index, debug):
             time.sleep(110)
     
 
-def main():
+def main(client, secret):
     """
     authenticate and poll subreddit api
     """
@@ -288,6 +304,7 @@ def main():
         # base = os.getcwd()
         # config_path = "/".join(base.split("/")[:-1])
         # config_file = os.path.join(base, "config.yaml")
+        client, secret = client, secret
         
         with open("config.yaml", "r") as f:
             config = yaml.safe_load(f)
@@ -316,4 +333,5 @@ def main():
 if __name__ == "__main__":
     # time.sleep(600)
     print("reading from api to kafka...")
+    aws_client, aws_secret = aws()
     main()
