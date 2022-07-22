@@ -1,4 +1,5 @@
 import pprint
+import boto3
 import json
 import time
 import sys
@@ -10,7 +11,21 @@ print("imported modules.")
 
 def test():
 
+    # open creds.json, access aws secretsmanager
     filename = "creds.json"
+    secrets = boto3.client("secretsmanager", region_name = "us-east-2")
+    os.environ["subreddit"] = "technology"
+    subreddit = os.environ["subreddit"]
+    print("subreddit: " + subreddit)
+
+    # aws access key & secret key
+    os.environ["AWS_ACCESS_KEY_ID"] = secrets.get_secret_value(SecretId = "AWS_ACCESS_KEY_ID")["SecretString"]
+    os.environ["AWS_SECRET_ACCESS_KEY"] = secrets.get_secret_value(SecretId = "AWS_SECRET_ACCESS_KEY")["SecretString"]
+    with open("creds.json", "r") as f:
+        creds = json.load(f)
+        f.close()
+
+    # get file
     with open(filename, "r") as f:
         file = json.load(f)
         f.close()
