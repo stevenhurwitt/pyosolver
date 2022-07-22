@@ -1,7 +1,7 @@
-name: pytest
+name: python
 on: [push, pull_request]
 jobs:
-  pytest:
+  python:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -13,7 +13,11 @@ jobs:
           name: "creds.json"
           json: ${{ secrets.CREDS }}
           dir: './'
+      - name: pip install
+        run: pip3 install -r requirements.txt
+      - name: setup
+        run: python3 setup.py bdist_wheel
       # - name: python3 setup.py
       #   run: python3 setup.py bdist_wheel
-      - name: pytest
-        run: cd src/tests/python && pytest -v tests.py
+      # - name: pytest
+      #   run: cd src/tests/python && pytest -v tests.py
