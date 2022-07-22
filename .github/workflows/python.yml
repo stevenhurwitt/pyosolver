@@ -13,5 +13,5 @@ jobs:
           name: "creds.json"
           json: ${{ secrets.CREDS }}
           dir: './'
-      - name: python3
+      - name: python3 setup.py
         run: python3 setup.py bdist_wheel
