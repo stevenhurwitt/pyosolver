@@ -1,0 +1,17 @@
+name: python
+on: [push, pull_request]
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: create-json
+        id: create-json
+        uses: jsdaniell/create-json@1.1.2
+        with:
+          name: "creds.json"
+          json: ${{ secrets.CREDS }}
+          dir: 'pyosolver/'
+      - name: python3
+        run: python3 setup.py bdist_wheel
