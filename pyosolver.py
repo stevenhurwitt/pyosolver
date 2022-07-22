@@ -5,6 +5,7 @@ from decimal import Decimal, InvalidOperation
 from functools import partial
 from uuid import uuid4
 DEBUG = 0
+start = time.time()
 
 class PYOSolver(object):
 	def __init__(self, path, executable_name):

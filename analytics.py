@@ -2,8 +2,8 @@ from pyosolver import node_to_line
 from pyosolver import PYOSolver
 import pyosolver
 
-PATH = "C:\\PioSOLVER"
-EXECUTABLE = "PioSOLVER2-edge"
+PATH = "~/pyosolver"
+EXECUTABLE = "PYOSOLVER2-edge"
 
 
 def simplify_solve(cfr_file_path, position, output_file_name):

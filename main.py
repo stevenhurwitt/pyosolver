@@ -2,13 +2,14 @@ from pyosolver import PYOSolver
 from analytics import simplify_solve
 import os
 
-
-PATH = "C:\\PioSOLVER"
-EXECUTABLE = "PioSOLVER2-edge"
+base = os.getcwd()
+print(base)
+PATH = "~/pyosolver"
+EXECUTABLE = "PYOSOLVER2-edge"
 
 
 def main():
-	directory = "C:\\PioSOLVER\\saves\\discover"
+	directory = "~/pyosolver/saves/discover"
 	convert(directory)
 	return
 
