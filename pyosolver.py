@@ -322,3 +322,6 @@ def is_member(hand, hand_class):
 		assert hand_class[2] == "o"
 		return ranks_match and hand[1] != hand[3]
 
+end = time.time()
+diff = end - start
+print(diff)

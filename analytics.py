@@ -2,7 +2,7 @@ from pyosolver import node_to_line
 from pyosolver import PYOSolver
 import pyosolver
 
-PATH = "~/pyosolver"
+PATH = "pyosolver"
 EXECUTABLE = "PYOSOLVER2-edge"
 
 

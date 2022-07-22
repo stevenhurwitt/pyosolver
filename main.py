@@ -4,12 +4,12 @@ import os
 
 base = os.getcwd()
 print(base)
-PATH = "~/pyosolver"
+PATH = "pyosolver"
 EXECUTABLE = "PYOSOLVER2-edge"
 
 
 def main():
-	directory = "~/pyosolver/saves/discover"
+	directory = "pyosolver/saves/discover"
 	convert(directory)
 	return
 
