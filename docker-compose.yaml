@@ -4,6 +4,8 @@ secrets:
     file: ./aws_access_key.txt
   aws_secret_access_key: 
     file: ./aws_secret.txt
+  subreddit:
+    file: ./subreddit.txt
 volumes:
   shared-workspace:
     driver: local
@@ -16,10 +18,12 @@ services:
     secrets:
       - aws_access_key_id
       - aws_secret_access_key
+      - subreddit
     environment:
       - JUPYTER_TOKEN=easy
       - AWS_ACCESS_KEY_ID=aws_access_key_id
       - AWS_SECRET_ACCESS_KEY=aws_secret_access_key
+      - subreddit=subreddit
     ports:
       - 8899:8888
     volumes:
