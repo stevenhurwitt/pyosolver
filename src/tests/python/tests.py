@@ -17,6 +17,7 @@ def test():
         print("read file: " + filename)
 
     pp.pprint(file)
+    print(type(file))
     assert True
 
 def read_file():
