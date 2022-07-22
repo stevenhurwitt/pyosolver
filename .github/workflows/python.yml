@@ -14,9 +14,9 @@ jobs:
           json: ${{ secrets.CREDS }}
           dir: './'
       - name: pip install
-        run: pip3 install -r src/main/python/pyosolver/requirements.txt
-      - name: setup
-        run: cd src/main/python/pyosolver && python3 setup.py bdist_wheel
+        run: pip3 install -r requirements.txt
+      # - name: setup
+      #   run: cd src/main/python/pyosolver && python3 setup.py bdist_wheel
       # - name: python3 setup.py
       #   run: python3 setup.py bdist_wheel
       # - name: pytest
