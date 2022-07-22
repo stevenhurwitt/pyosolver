@@ -11,6 +11,8 @@ import json
 import sys
 import os
 pp = pprint.PrettyPrinter(indent=1)
+secrets = boto3.client("secretsmanager", region_name = "us-east-2")
+print(secrets)
 
 try:
     import reddit
@@ -19,8 +21,6 @@ try:
 except:
     print("failed to import reddit module.")
     pass
-
-pp = pprint.PrettyPrinter(indent = 1)
 
 # def aws():
 #     s3_client = boto3.client("s3")
