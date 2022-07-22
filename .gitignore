@@ -1,6 +1,8 @@
 __pycache__
 build
+dist
 dist/*.whl
-pyosolver.egg-info
+pyosolver/saves/discover
+pyosolver.egg-info/*
 *.json
 *.txt

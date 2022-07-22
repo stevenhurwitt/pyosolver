@@ -1,6 +1,0 @@
-README.md
-setup.py
-pyosolver.egg-info/PKG-INFO
-pyosolver.egg-info/SOURCES.txt
-pyosolver.egg-info/dependency_links.txt
-pyosolver.egg-info/top_level.txt
