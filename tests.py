@@ -19,8 +19,16 @@ def test():
     print("subreddit: " + subreddit)
 
     # aws access key & secret key
-    os.environ["AWS_ACCESS_KEY_ID"] = secrets.get_secret_value(SecretId = "AWS_ACCESS_KEY_ID")["SecretString"]
-    os.environ["AWS_SECRET_ACCESS_KEY"] = secrets.get_secret_value(SecretId = "AWS_SECRET_ACCESS_KEY")["SecretString"]
+    aws_client_response = json.loads(secrets.get_secret_value(SecretId = "AWS_ACCESS_KEY_ID")["SecretString"])
+    aws_secret_response = json.loads(secrets.get_secret_value(SecretId = "AWS_SECRET_ACCESS_KEY")["SecretString"])
+    client = aws_client_response["AWS_ACCESS_KEY_ID"]
+    secret = aws_secret_response["AWS_SECRET_ACCESS_KEY"]
+    
+    # set env var's
+    os.environ["AWS_ACCESS_KEY_ID"] = client
+    os.environ["AWS_SECRET_ACCESS_KEY"] = secret
+
+    # read creds.json
     with open("creds.json", "r") as f:
         creds = json.load(f)
         pp.pprint(creds)
