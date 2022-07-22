@@ -32,8 +32,8 @@ jobs:
         with:
             # https://docs.docker.com/compose/reference/overview/
             cli-args: "up -d"
-      - name: kafka producer
-        run: docker exec -it jupyterlab "python3 pyosolver/src/main/python/reddit/reddit_producer.py"
-      - name: reddit streaming
-        run: docker exec -it jupyterlab "python3 pyosolver/src/main/python/reddit/reddit_streaming.py"
+      # - name: kafka producer
+      #   run: docker exec -it jupyterlab "python3 pyosolver/src/main/python/reddit/reddit_producer.py"
+      # - name: reddit streaming
+      #   run: docker exec -it jupyterlab "python3 pyosolver/src/main/python/reddit/reddit_streaming.py"
 
