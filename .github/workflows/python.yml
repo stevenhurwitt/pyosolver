@@ -16,4 +16,4 @@ jobs:
       # - name: python3 setup.py
       #   run: python3 setup.py bdist_wheel
       - name: pytest
-        run: pytest -v src/tests/python/tests.py
+        run: cd src/tests/python && pytest -v tests.py
