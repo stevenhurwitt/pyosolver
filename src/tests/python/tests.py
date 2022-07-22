@@ -12,21 +12,22 @@ def test():
     print("test")
     assert True
 
-def read_file(filename):
+def read_file():
 
+    filename = "creds.json"
     with open(filename, "r") as f:
         file = json.load(f)
         f.close()
         print("read file: " + filename)
 
-    assert str(type(file)) == "<class 'dict'>"
+    pp.pprint(file)
+    # assert str(type(file)) == "<class 'dict'>"
 
 def main():
 
     test()
 
-    filename = "creds.json"
-    read_file(filename)
+    read_file()
 
     print("ran tests successfully.")
 
@@ -36,7 +37,10 @@ if __name__ == "__main__":
     start = time.time()
 
     # run main
-    main()
+    test()
+
+    read_file()
+
 
     # get end time
     print("done.")
