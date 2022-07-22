@@ -12,6 +12,6 @@ jobs:
         with:
           name: "creds.json"
           json: ${{ secrets.CREDS }}
-          dir: 'pyosolver/'
+          dir: './'
       - name: mvn clean package
         run: mvn clean package
