@@ -22,8 +22,8 @@ RUN apt-get update -y && \
     python3 -m pip install --upgrade pip
     
 # pyspark==3.3.0
-RUN python3 -m pip install jupyterlab==${jupyterlab_version} && \
-    python3 -m pip install dist/pyosolver-0.1.0-py3-none-any.whl --force-reinstall
+RUN python3 -m pip install jupyterlab==${jupyterlab_version}
+    # python3 -m pip install dist/pyosolver-0.1.0-py3-none-any.whl --force-reinstall
 
 # custom .whl's
 # RUN python3 -m pip install /opt/workspace/redditStreaming/target/reddit-0.1.0-py3-none-any.whl --force-reinstall && \
