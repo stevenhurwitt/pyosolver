@@ -14,7 +14,7 @@ jobs:
         with:
           name: "creds.json"
           json: ${{ secrets.CREDS }}
-          dir: 'redditStreaming/'
+          dir: 'pyosolver/'
       # - name: aws access key id
       #   run: 'echo "$ACCESS_KEY" > ./aws_access_key.txt'
       #   shell: bash
@@ -33,7 +33,7 @@ jobs:
             # https://docs.docker.com/compose/reference/overview/
             cli-args: "up -d"
       - name: kafka producer
-        run: docker exec -it jupyterlab "python3 redditStreaming/src/main/python/reddit/reddit_producer.py"
+        run: docker exec -it jupyterlab "python3 pyosolver/src/main/python/reddit/reddit_producer.py"
       - name: reddit streaming
-        run: docker exec -it jupyterlab "python3 redditStreaming/src/main/python/reddit/reddit_streaming.py"
+        run: docker exec -it jupyterlab "python3 pyosolver/src/main/python/reddit/reddit_streaming.py"
 
