@@ -1,4 +1,5 @@
 __pycache__
 *.json
+*.txt
 pyosolver/dist/*.whl
 pyosolver.egg-info
