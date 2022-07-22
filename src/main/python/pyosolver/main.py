@@ -11,6 +11,9 @@ EXECUTABLE = "PYOSOLVER2-edge"
 def main():
 	directory = "pyosolver/saves/discover"
 	convert(directory)
+
+	pyosolver = PYOSolver(PATH, EXECUTABLE)
+	print(pyosolver)
 	return
 
 
