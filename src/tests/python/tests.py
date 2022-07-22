@@ -18,19 +18,13 @@ def test():
     print(type(file))
     assert True
 
-def main():
-
-    test()
-
-    print("ran tests successfully.")
-
 if __name__ == "__main__":
     # get start time
     print("running main...")
     start = time.time()
 
     # run main
-    main()
+    test()
 
     # get end time
     print("done.")
