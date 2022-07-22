@@ -1,5 +1,5 @@
 name: docker
-on: [push]
+on: [push, pull_request]
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -32,4 +32,6 @@ jobs:
         with:
             # https://docs.docker.com/compose/reference/overview/
             cli-args: "up -d"
+      - name: kafka producer
+        run: docker exec -it jupyterlab "python3 redditStreaming/src/main/python/reddit/reddit_producer.py"
 
