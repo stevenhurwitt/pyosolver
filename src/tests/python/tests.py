@@ -15,8 +15,7 @@ def test():
         file = json.load(f)
         f.close()
     print("read file: " + filename)
-    print(type(file))
-    assert True
+    assert len(filename) > 0
 
 if __name__ == "__main__":
     # get start time
