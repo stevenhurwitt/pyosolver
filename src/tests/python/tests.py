@@ -14,28 +14,13 @@ def test():
     with open(filename, "r") as f:
         file = json.load(f)
         f.close()
-        print("read file: " + filename)
-
-    pp.pprint(file)
+    print("read file: " + filename)
     print(type(file))
-    assert True
-
-def read_file():
-
-    filename = "creds.json"
-    with open(filename, "r") as f:
-        file = json.load(f)
-        f.close()
-        print("read file: " + filename)
-
-    pp.pprint(file)
     assert True
 
 def main():
 
     test()
-
-    read_file()
 
     print("ran tests successfully.")
 
@@ -45,10 +30,7 @@ if __name__ == "__main__":
     start = time.time()
 
     # run main
-    test()
-
-    read_file()
-
+    main()
 
     # get end time
     print("done.")
