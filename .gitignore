@@ -1,5 +1,6 @@
 __pycache__
+build
+dist/*.whl
+pyosolver.egg-info
 *.json
 *.txt
-pyosolver/dist/*.whl
-pyosolver.egg-info
