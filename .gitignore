@@ -5,6 +5,7 @@ __pycache__
 .DS_Store
 build
 dist
+target
 dist/*.whl
 pyosolver/saves/discover
 pyosolver.egg-info
