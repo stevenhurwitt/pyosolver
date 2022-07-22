@@ -28,7 +28,7 @@ def read_file():
         print("read file: " + filename)
 
     pp.pprint(file)
-    # assert str(type(file)) == "<class 'dict'>"
+    assert True
 
 def main():
 
