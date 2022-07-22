@@ -21,7 +21,8 @@ RUN apt-get update -y && \
     curl https://bootstrap.pypa.io./get-pip.py | python3 && \
     python3 -m pip install --upgrade pip
     
-RUN python3 -m pip install pyspark==3.3.0 jupyterlab==${jupyterlab_version} && \
+# pyspark==3.3.0
+RUN python3 -m pip install jupyterlab==${jupyterlab_version} && \
     python3 -m pip install dist/pyosolver-0.1.0-py3-none-any.whl --force-reinstall
 
 # custom .whl's
